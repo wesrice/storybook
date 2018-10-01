@@ -1,92 +1,54 @@
-import { document } from 'global';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import React from 'react';
-import { SketchPicker } from 'react-color';
-
 import styled from '@emotion/styled';
+import { Global, css } from '@emotion/core';
+
+import ColorPicker from 'rc-color-picker';
+import colorPickerCss from '!!raw-loader!rc-color-picker/assets/index.css';
 
 import { Button } from '@storybook/components';
 
+const StylelessButton = ({ style, ...props }) => <Button {...props} />;
+
+const hexToRgb = hex => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)]
+    : null;
+};
+
 const Swatch = styled.div({
-  position: 'absolute',
+  position: 'relative',
   top: 0,
   bottom: 0,
   right: 3,
   width: 28,
-});
-const Popover = styled.div({
-  position: 'absolute',
-  zIndex: '2',
+  transition: 'background 0.1s linear',
 });
 
 class ColorType extends React.Component {
-  state = {
-    displayColorPicker: false,
-  };
-
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleWindowMouseDown);
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    const { knob } = this.props;
-    const { displayColorPicker } = this.state;
-
-    return (
-      nextProps.knob.value !== knob.value || nextState.displayColorPicker !== displayColorPicker
-    );
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleWindowMouseDown);
-  }
-
-  handleWindowMouseDown = e => {
-    const { displayColorPicker } = this.state;
-    if (!displayColorPicker || this.popover.contains(e.target)) {
-      return;
-    }
-
-    this.setState({
-      displayColorPicker: false,
-    });
-  };
-
-  handleClick = () => {
-    const { displayColorPicker } = this.state;
-
-    this.setState({
-      displayColorPicker: !displayColorPicker,
-    });
-  };
-
-  handleChange = color => {
+  handleChange = ({ color, alpha }) => {
     const { onChange } = this.props;
-
-    onChange(`rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`);
+    const rgba = hexToRgb(color).concat(alpha / 100);
+    onChange(`rgba(${rgba.join(',')})`);
   };
 
   render() {
     const { knob } = this.props;
-    const { displayColorPicker } = this.state;
     const colorStyle = {
       background: knob.value,
     };
 
     return (
-      <Button type="button" onClick={this.handleClick} size="flex">
-        {knob.value}
-        <Swatch style={colorStyle} />
-        {displayColorPicker ? (
-          <Popover
-            innerRef={e => {
-              this.popover = e;
-            }}
-          >
-            <SketchPicker color={knob.value} onChange={this.handleChange} />
-          </Popover>
-        ) : null}
-      </Button>
+      <Fragment>
+        <Global styles={css(colorPickerCss)} />
+        <ColorPicker color={knob.value} onChange={this.handleChange}>
+          <StylelessButton type="button" size="flex">
+            {knob.value}
+            <Swatch style={colorStyle} />
+          </StylelessButton>
+        </ColorPicker>
+      </Fragment>
     );
   }
 }

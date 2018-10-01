@@ -57,7 +57,10 @@
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
-    "eslint-plugin-html": "^4.0.5"
+    "eslint-plugin-html": "^4.0.5",
+    "source-map-explorer": "^1.6.0",
+    "stats-webpack-plugin": "^0.7.0",
+    "webpack-bundle-analyzer": "^3.0.2"
   },
   "devDependencies": {
     "@angular/common": "^6.1.4",

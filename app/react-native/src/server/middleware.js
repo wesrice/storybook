@@ -38,8 +38,43 @@ export default function(options) {
   const compiler = webpack(config);
   const devMiddlewareOptions = {
     noInfo: true,
-    publicPath: config.output.publicPath,
-    watchOptions: config.watchOptions || {},
+    logLevel: 'warn',
+    watchOptions: config.watchOptions || {
+      aggregateTimeout: 10,
+    },
+    // stats: {
+    //   assets: true,
+    //   assetsSort: 'field',
+    //   builtAt: false,
+    //   cached: true,
+    //   cachedAssets: false,
+    //   children: false,
+    //   chunks: false,
+    //   chunkModules: true,
+    //   chunkOrigins: false,
+    //   chunksSort: 'field',
+    //   context: '../src/',
+    //   colors: true,
+    //   depth: false,
+    //   entrypoints: false,
+    //   env: false,
+    //   errors: true,
+    //   errorDetails: true,
+    //   hash: true,
+    //   maxModules: 15,
+    //   modules: false,
+    //   modulesSort: 'field',
+    //   moduleTrace: false,
+    //   performance: true,
+    //   providedExports: false,
+    //   publicPath: false,
+    //   reasons: false,
+    //   source: false,
+    //   timings: false,
+    //   usedExports: false,
+    //   version: false,
+    //   warnings: true,
+    // },
   };
 
   const router = new Router();
@@ -49,7 +84,13 @@ export default function(options) {
   router.use(webpackDevMiddleware(compiler, devMiddlewareOptions));
 
   if (!isProd) {
-    router.use(webpackHotMiddleware(compiler));
+    router.use(
+      webpackHotMiddleware(compiler, {
+        log: false,
+        quiet: true,
+        noInfo: true,
+      })
+    );
   }
 
   router.get('/', (req, res) => {

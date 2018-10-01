@@ -9,7 +9,7 @@ module.exports = {
       },
     ],
     require.resolve('babel-preset-react'),
-    require.resolve('babel-preset-minify'),
+    // [require.resolve('babel-preset-minify'), { sourceMaps: true }],
   ],
   plugins: [
     require.resolve('babel-plugin-syntax-trailing-function-commas'),

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { RoutedLink, SyntaxHighlighter } from '@storybook/components';
 
-import { createElement } from 'react-syntax-highlighter';
+import createElement from 'react-syntax-highlighter/create-element';
 import { EVENT_ID } from './events';
 
 const styles = {

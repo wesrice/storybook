@@ -1,3 +1,4 @@
 #!/usr/bin/env node
+require = require('esm')(module);
 
-require('../dist/server');
+module.export = require('../dist/server');
