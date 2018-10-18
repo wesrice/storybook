@@ -115,8 +115,8 @@ import { Provider } from '@storybook/ui';
 
 class ReactProvider extends Provider {
   handleAPI(api) {
-    api.onStory((kind, story) => {
-        this.globalState.emit('change', kind, story);
+    api.onStory(story => {
+        this.globalState.emit('change', story);
     });
   }
 }

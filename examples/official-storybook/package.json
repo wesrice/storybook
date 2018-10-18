@@ -24,6 +24,7 @@
     "@storybook/addon-info": "4.0.0-alpha.25",
     "@storybook/addon-jest": "4.0.0-alpha.25",
     "@storybook/addon-knobs": "4.0.0-alpha.25",
+    "@storybook/addon-knobs2": "4.0.0-alpha.25",
     "@storybook/addon-links": "4.0.0-alpha.25",
     "@storybook/addon-notes": "4.0.0-alpha.25",
     "@storybook/addon-options": "4.0.0-alpha.25",
