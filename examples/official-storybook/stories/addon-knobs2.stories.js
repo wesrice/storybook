@@ -16,7 +16,7 @@ import {
   // files,
 } from '@storybook/addon-knobs2';
 
-storiesOf('new knobs')
+storiesOf('new knobs', module)
   .add('shiny', ({ className }) => <div className={className} />, {
     className: text('initial'),
   })

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // import styled from '@emotion/styled';
 
 // import { ActionBar, ActionButton, Button, Select, Field } from '@storybook/components';
+import { STORY_RENDERED } from '@storybook/core-events';
 
 // import { CHANGE, RESET } from './constants';
 import * as S from './components';
@@ -10,25 +11,42 @@ import * as S from './components';
 export default class ViewportPanel extends Component {
   mounted = false;
 
+  listeners = {
+    [STORY_RENDERED]: story => {
+      console.log('yeej');
+      this.setState({ story });
+    },
+  };
+
+  state = {
+    story: {},
+  };
+
   componentDidMount() {
     this.mounted = true;
-    const { channel, api } = this.props;
+    const { channel } = this.props;
 
-    this.unsubscribeFromOnStory = api.onStory(story => {
-      console.log(story);
+    Object.entries(this.listeners).forEach(([k, v]) => {
+      debugger;
+      channel.addPeerListener(k, v);
     });
   }
 
-  componentWillUnmount() {
-    this.mounted = false;
-    const { channel } = this.props;
+  // componentWillUnmount() {
+  //   this.mounted = false;
+  //   const { channel } = this.props;
 
-    this.unsubscribeFromOnStory();
-  }
+  //   this.unsubscribeFromOnStory();
+  // }
 
   render() {
-    const { active } = this.props;
-
-    return active ? <S.Container>Hi</S.Container> : null;
+    const { story } = this.state;
+    return (
+      <S.Container>
+        ...
+        {story.id}
+        ...
+      </S.Container>
+    );
   }
 }
