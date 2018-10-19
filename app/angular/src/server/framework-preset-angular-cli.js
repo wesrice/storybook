@@ -1,35 +1,34 @@
 import { logger } from '@storybook/node-logger';
+import { loadAngularCliComponents } from './angular-cli_loader';
+import { applyAngularCliWebpackConfig } from './angular-cli_webpack';
 import { filterOutStylingRules } from './angular-cli_utils';
 
-import {
-  getAngularCliWebpackConfigOptions,
-  applyAngularCliWebpackConfig,
-} from './angular-cli_config';
-
-const cwd = process.cwd();
-const cliWebpackConfigOptions = getAngularCliWebpackConfigOptions(cwd);
+const angularCliComponents = loadAngularCliComponents(process.cwd());
 
 export function webpack(config) {
-  if (!cliWebpackConfigOptions) {
+  if (!angularCliComponents) {
     return config;
   }
 
+  const { cliParts, cliConfig } = angularCliComponents;
+
   logger.info('=> Loading angular-cli config.');
-  return applyAngularCliWebpackConfig(config, cliWebpackConfigOptions);
+
+  return applyAngularCliWebpackConfig(config, cliParts, cliConfig);
 }
 
 export function webpackDefault(config) {
-  if (!cliWebpackConfigOptions) {
+  if (!angularCliComponents) {
     return config;
   }
 
-  const defaultRulesWithoutCss = filterOutStylingRules(config);
+  const defaultRulesWithoutStyles = filterOutStylingRules(config);
 
   return {
     ...config,
     module: {
-      ...config.module,
-      rules: defaultRulesWithoutCss,
+      ...(config.module || {}),
+      rules: defaultRulesWithoutStyles,
     },
   };
 }

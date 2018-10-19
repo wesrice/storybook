@@ -37,8 +37,11 @@ function isStylingRule(rule) {
   return test.test('.css') || test.test('.scss') || test.test('.sass');
 }
 
-export function filterOutStylingRules(config) {
-  return config.module.rules.filter(rule => !isStylingRule(rule));
+export function filterOutStylingRules(config = {}) {
+  const { module = {} } = config;
+  const { rules = [] } = module;
+
+  return rules.filter(rule => !isStylingRule(rule));
 }
 
 export function isBuildAngularInstalled() {
