@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import JSON5 from 'json5';
 import findCacheDir from 'find-cache-dir';
-import { createDefaultWebpackConfig } from '@storybook/core/server';
+import { defaultWebpackConfig, mergeConfigs } from '@storybook/core/server';
 
 // avoid ESLint errors
 const logger = console;
@@ -98,7 +98,7 @@ export default function(configType, baseConfig, projectDir, configDir) {
     config.entry.manager.unshift(storybookCustomAddonsPath);
   }
 
-  const defaultConfig = createDefaultWebpackConfig(config);
+  const defaultConfig = mergeConfigs(config, defaultWebpackConfig);
 
   // Check whether user has a custom webpack config file and
   // return the (extended) base configuration if it's not available.
