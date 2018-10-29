@@ -19,6 +19,7 @@
     "examples/riot-kitchen-sink",
     "examples/svelte-kitchen-sink",
     "examples/vue-kitchen-sink",
+    "examples/presentation",
     "lib/cli/test/run/*"
   ],
   "scripts": {
