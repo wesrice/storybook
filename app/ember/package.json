@@ -30,8 +30,8 @@
     "@storybook/core": "4.0.0-alpha.25",
     "common-tags": "^1.8.0",
     "global": "^4.3.2",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0"
   },
   "peerDependencies": {
     "babel-loader": "^7.0.0 || ^8.0.0",

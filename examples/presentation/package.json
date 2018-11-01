@@ -1,35 +1,23 @@
 {
-  "name": "official-storybook",
+  "name": "presentation",
   "version": "4.0.0-alpha.25",
   "private": true,
   "scripts": {
     "build-storybook": "build-storybook -c ./ -s built-storybooks",
     "chromatic": "chromatic test --storybook-addon --exit-zero-on-changes --app-code ab7m45tp9p",
-    "do-image-snapshots": "../../node_modules/.bin/jest --projects=./image-snapshots",
-    "generate-addon-jest-testresults": "jest --config=tests/addon-jest.config.json --json --outputFile=stories/addon-jest.testresults.json",
-    "graphql": "node ./graphql-server/index.js",
-    "image-snapshots": "yarn run build-storybook && yarn run do-image-snapshots",
-    "storybook": "start-storybook -p 9011 -c ./ -s built-storybooks"
+    "storybook": "start-storybook -p 1337 -c ./"
   },
   "devDependencies": {
     "@emotion/core": "^0.13.1",
     "@emotion/provider": "^0.11.2",
     "@emotion/styled": "^0.10.6",
-    "@storybook/addon-a11y": "4.0.0-alpha.25",
     "@storybook/addon-actions": "4.0.0-alpha.25",
     "@storybook/addon-backgrounds": "4.0.0-alpha.25",
     "@storybook/addon-centered": "4.0.0-alpha.25",
-    "@storybook/addon-events": "4.0.0-alpha.25",
-    "@storybook/addon-graphql": "4.0.0-alpha.25",
-    "@storybook/addon-info": "4.0.0-alpha.25",
-    "@storybook/addon-jest": "4.0.0-alpha.25",
     "@storybook/addon-knobs": "4.0.0-alpha.25",
     "@storybook/addon-links": "4.0.0-alpha.25",
     "@storybook/addon-notes": "4.0.0-alpha.25",
     "@storybook/addon-options": "4.0.0-alpha.25",
-    "@storybook/addon-storyshots": "4.0.0-alpha.25",
-    "@storybook/addon-storyshots-puppeteer": "4.0.0-alpha.25",
-    "@storybook/addon-storysource": "4.0.0-alpha.25",
     "@storybook/addon-viewport": "4.0.0-alpha.25",
     "@storybook/addons": "4.0.0-alpha.25",
     "@storybook/components": "4.0.0-alpha.25",
@@ -44,6 +32,7 @@
     "format-json": "^1.0.3",
     "global": "^4.3.2",
     "graphql": "^14.0.2",
+    "memoizerific": "^1.11.3",
     "paths.macro": "^2.0.2",
     "prop-types": "^15.6.2",
     "react": "^16.7.0-alpha.0",
@@ -51,5 +40,10 @@
     "react-dom": "^16.7.0-alpha.0",
     "uuid": "^3.3.2",
     "webpack": "^4.20.2"
+  },
+  "dependencies": {
+    "react-live": "^1.12.0",
+    "react-pose": "^3.3.7",
+    "react-split-pane": "^2.0.2"
   }
 }
