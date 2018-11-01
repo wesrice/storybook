@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import { CodePage } from '../components/page';
 import Heading from '../components/heading';
 
 import * as Carousels from '../components/accordion/implementations';
-import items from '../components/accordion/implementations';
+
+const { items } = Carousels;
 
 storiesOf('Slides|examples', module)
   .add('react component', () => (
@@ -76,8 +76,9 @@ storiesOf('Slides|examples', module)
         renderExpandAllButton={true}
       />
     `}</CodePage>
+  ))
+  .add('alternative', () => (
+    <CodePage scope={{ AccordionBottomSingle: Carousels.SinglePreventClose, items }}>{`
+      <AccordionBottomSingle items={items} />
+    `}</CodePage>
   ));
-// .add('please stop it', () => (
-//   <CodePage scope={{ Accordion: Carousels.Standard, items }}>{`
-//   `}</CodePage>
-// ));

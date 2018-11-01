@@ -32,22 +32,25 @@ export default class KnobPanel extends PureComponent {
   }
 
   componentDidMount() {
+    console.log('mounted knobs panel');
     this.mounted = true;
     const { channel, api } = this.props;
     channel.on(SET, this.setKnobs);
     channel.on(SET_OPTIONS, this.setOptions);
 
-    this.stopListeningOnStory = api.onStory(() => {
-      if (this.mounted) {
-        this.setState({ knobs: {} });
-      }
-      channel.emit(RESET);
-    });
+    // this.stopListeningOnStory = api.onStory(() => {
+    //   if (this.mounted) {
+    //     this.setState({ knobs: {} });
+    //   }
+    //   channel.emit(RESET);
+    // });
   }
 
   componentWillUnmount() {
     this.mounted = false;
     const { channel } = this.props;
+
+    debugger;
 
     channel.removeListener(SET, this.setKnobs);
     this.stopListeningOnStory();

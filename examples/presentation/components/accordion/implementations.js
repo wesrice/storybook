@@ -17,7 +17,7 @@ const PlaceHolder = styled.div(({ color }) => ({
   borderStyle: 'solid',
 }));
 
-const items = [
+export const items = [
   {
     title: 'item 1: pink',
     contents: <PlaceHolder color="hotpink">hotpink content here...</PlaceHolder>,

@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 const AccordionButton = styled.button(
   {
     textAlign: 'left',
-    minWidth: 80,
+    minWidth: 400,
     cursor: 'pointer',
     flex: 1,
     paddingTop: 10,

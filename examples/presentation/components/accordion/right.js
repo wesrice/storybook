@@ -1,6 +1,6 @@
 import React from 'react';
 import { Accordion } from './base';
-import { css, AccordionButton, AccordionItem, AccordionContents } from './common';
+import { AccordionButton, AccordionItem, AccordionContents, Indicator } from './common';
 
 function RightAccordion({ items, ...props }) {
   return (
@@ -13,7 +13,7 @@ function RightAccordion({ items, ...props }) {
                 isOpen={openIndexes.includes(index)}
                 onClick={() => handleItemClick(index)}
               >
-                <span>{openIndexes.includes(index) ? '👉' : '👈'}</span> {item.title}
+                <Indicator>{openIndexes.includes(index) ? '📂' : '📁'}</Indicator> {item.title}
               </AccordionButton>
               <AccordionContents isOpen={openIndexes.includes(index)}>
                 {item.contents}

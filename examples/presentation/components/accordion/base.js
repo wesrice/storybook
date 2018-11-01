@@ -16,7 +16,6 @@ class Accordion extends React.Component {
   }
 
   internalSetState(changes, callback = () => {}) {
-    console.log('internalSetState');
     let allChanges;
     this.setState(
       state => {
