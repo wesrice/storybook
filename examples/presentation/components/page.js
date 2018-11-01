@@ -4,6 +4,8 @@ import styled from '@emotion/styled';
 import SplitPane from 'react-split-pane';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 
+import { Spaced } from '@storybook/components';
+
 const Page = styled.section(({ scroll = false }) => ({
   position: 'fixed',
   top: 0,
@@ -13,6 +15,7 @@ const Page = styled.section(({ scroll = false }) => ({
   width: '100%',
   height: '100%',
   overflow: scroll ? 'auto' : 'hidden',
+  textAlign: 'center',
 }));
 
 const Pane = styled.div({
@@ -69,4 +72,10 @@ const CodePage = ({ children, scope }) => (
   </LiveProvider>
 );
 
-export { Page, CodePage };
+const TitlePage = ({ children }) => (
+  <Spaced row={1} outer={4}>
+    {children}
+  </Spaced>
+);
+
+export { Page, CodePage, TitlePage };

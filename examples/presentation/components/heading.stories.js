@@ -27,6 +27,15 @@ storiesOf('Components|Heading', module)
       </Holder>
       <Separator />
       <Holder>
+        <Heading type="sub">A sub type</Heading>
+      </Holder>
+      <Holder>
+        <Heading type="sub" sub="with a subtitle">
+          A section type
+        </Heading>
+      </Holder>
+      <Separator />
+      <Holder>
         <Heading type="section">A section type</Heading>
       </Holder>
       <Holder>

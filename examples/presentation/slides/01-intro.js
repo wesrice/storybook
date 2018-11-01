@@ -1,54 +1,80 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import { TitlePage } from '../components/page';
 import Heading from '../components/heading';
+import Hr from '../components/hr';
 
 storiesOf('Slides|intro', module)
   .add('start', () => (
-    <Fragment>
+    <TitlePage>
       <Heading type="main">Writing better components using Storybook</Heading>
-    </Fragment>
+    </TitlePage>
   ))
   .add('title', () => (
-    <Fragment>
+    <TitlePage>
       <Heading type="main">Writing apps is hard 😞</Heading>
-    </Fragment>
+    </TitlePage>
   ))
   .add('questions - estimation', () => (
-    <Fragment>
+    <TitlePage>
       <Heading type="main">How often are your estimations correct?</Heading>
-    </Fragment>
+    </TitlePage>
   ))
   .add('questions - decomposing', () => (
-    <Fragment>
+    <TitlePage>
       <Heading type="main">
         Is de-composing your big application into smaller applications to answer?
       </Heading>
-    </Fragment>
+    </TitlePage>
   ))
   .add('the danger', () => (
-    <Fragment>
+    <TitlePage>
       <Heading type="main">Distributed monolith 😱</Heading>
-    </Fragment>
+    </TitlePage>
   ))
   .add('questions - decomposing2', () => (
-    <Fragment>
+    <TitlePage>
       <Heading type="main">
         Is de-composing your big application into smaller applications to answer? 🤔
       </Heading>
-    </Fragment>
+    </TitlePage>
   ))
-  .add('yes', () => <div>🎊 yes 🎉</div>)
+  .add('yes', () => <Heading type="sub">🎊 yes 🎉</Heading>)
   .add('thank you', () => (
-    <Fragment>
-      <p>👋</p>
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
+        👋
+      </Heading>
       <Heading type="main">Thank you for your time!</Heading>
-    </Fragment>
+    </TitlePage>
   ))
   .add('about me', () => (
-    <Fragment>
-      <div>Norbert de Langen</div>
-      <p>Full-time open-source maintainer of Storybook</p>
-      <p>Developer Advocate at Chroma</p>
-    </Fragment>
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
+        👨‍💻
+      </Heading>
+      <Heading type="section" mods={['centered']}>
+        Norbert de Langen
+      </Heading>
+      <Hr />
+      <center>
+        <p>Full-time open-source maintainer of Storybook</p>
+        <p>&</p>
+        <p>Developer Advocate at Chroma</p>
+        <p>&</p>
+        <p>Farther, Husband</p>
+        <p>&</p>
+        <p>I have no idea what I'm doing</p>
+      </center>
+      <Hr />
+      <center>
+        <p>
+          🦆 <a href="https://twitter.com/ndelangen">@norbertdelangen</a>
+        </p>
+        <p>
+          💌 <a href="mailto:ndelangen@me.com">ndelangen@me.com</a>
+        </p>
+      </center>
+    </TitlePage>
   ));

@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { CodePage } from '../components/page';
+import { CodePage, TitlePage } from '../components/page';
 import Heading from '../components/heading';
 
 import * as Carousels from '../components/accordion/implementations';
@@ -10,37 +10,37 @@ const { items } = Carousels;
 
 storiesOf('Slides|examples', module)
   .add('react component', () => (
-    <Fragment>
+    <TitlePage>
       <Heading type="main">They abstract a section of UI</Heading>
       <p>right? 🙄</p>
-    </Fragment>
+    </TitlePage>
   ))
   .add('sort of', () => (
-    <Fragment>
+    <TitlePage>
       <p>Sort of 🤷‍</p>
-    </Fragment>
+    </TitlePage>
   ))
   .add('definition of a component', () => (
-    <Fragment>
+    <TitlePage>
       <Heading type="main">React components should abstract a UI pattern/concept.</Heading>
       <p>This is different from "a section of visible UI".</p>
-    </Fragment>
+    </TitlePage>
   ))
   .add('ui concept', () => (
-    <Fragment>
+    <TitlePage>
       <Heading type="main">
         UI concepts <strong>can</strong> be visible.
       </Heading>
       <p>This is different from "a section of visible UI".</p>
-    </Fragment>
+    </TitlePage>
   ))
   .add('encapsulate', () => (
-    <Fragment>
+    <TitlePage>
       A well implemented UI concept should abstract/isolate that particular concept and nothing
       else.
       <br />
       Remember, if you abstract too much, it will likely result in complexity later.
-    </Fragment>
+    </TitlePage>
   ));
 
 storiesOf('Slides|examples', module)

@@ -1,45 +1,62 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import { TitlePage } from '../components/page';
 import Heading from '../components/heading';
+import Hr from '../components/hr';
 
 storiesOf('Slides|core', module).add('concepts', () => (
-  <Fragment>
-    <Heading type="main">Abstraction, Isolation, Autonomy</Heading>
-  </Fragment>
+  <TitlePage>
+    <Heading type="main" mods={['centered']}>
+      Abstraction, Isolation, Autonomy
+    </Heading>
+  </TitlePage>
 ));
 
 storiesOf('Slides|core', module)
   .add('abstraction', () => (
-    <Fragment>
-      <Heading type="main">Good abstraction is the 🔑 to good software</Heading>
-      <p>
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
+        Good abstraction is the 🔑 to good software
+      </Heading>
+      <Hr />
+      <Heading type="sub" mods={['centered']}>
         If you create abstractions where you shouldn't you'll get <strong>complexity</strong>
-      </p>
-      <p>
+      </Heading>
+      <Heading type="sub" mods={['centered']}>
         If you don't create abstractions where you should you'll get <strong>complexity</strong>
-      </p>
-    </Fragment>
+      </Heading>
+    </TitlePage>
   ))
   .add('knight', () => (
-    <Fragment>
-      <Heading type="main">If developers are like 🤺 fighting complexity...</Heading>
-    </Fragment>
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
+        If developers are like 🤺 fighting complexity...
+      </Heading>
+    </TitlePage>
   ))
   .add('dragon', () => (
-    <Fragment>
-      <Heading type="main">Complexity is the 🐉</Heading>
-      <p>If we fail to ⚔️ it effectively, we feed it.</p>
-    </Fragment>
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
+        Complexity is the 🐉
+      </Heading>
+      <Heading type="sub" mods={['centered']}>
+        If we fail to ⚔️ it effectively, we feed it.
+      </Heading>
+    </TitlePage>
   ))
   .add('understanding', () => (
-    <Fragment>
-      <Heading type="main">To create correct abstractions</Heading>
-      <p>We must understand the problem well</p>
-    </Fragment>
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
+        To create correct abstractions
+      </Heading>
+      <Heading type="sub" mods={['centered']}>
+        We must understand the problem well
+      </Heading>
+    </TitlePage>
   ))
   .add('art of war', () => (
-    <Fragment>
+    <TitlePage>
       <blockquote>
         “If you know the enemy and know yourself, you need not fear the result of a hundred battles.
         <br />
@@ -48,67 +65,93 @@ storiesOf('Slides|core', module)
         <br />
         If you know neither the enemy nor yourself, you will succumb in every battle.”
       </blockquote>
-      <p>― Sun Tzu, The Art of War</p>
-    </Fragment>
+      <Heading type="sub" mods={['centered']}>
+        ― Sun Tzu, The Art of War
+      </Heading>
+    </TitlePage>
   ));
 
 storiesOf('Slides|core', module)
   .add('isolation', () => (
-    <Fragment>
-      <Heading type="main">Isolation is the possible result of good abstraction</Heading>
-    </Fragment>
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
+        Isolation is the possible result of good abstraction
+      </Heading>
+    </TitlePage>
   ))
   .add('swappable', () => (
-    <Fragment>
-      <Heading type="main">An isolated component can be swapped by a similar one 🔃</Heading>
-    </Fragment>
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
+        An isolated component can be swapped by a similar one 🔃
+      </Heading>
+    </TitlePage>
   ))
   .add('API', () => (
-    <Fragment>
-      <Heading type="main">The API of your component</Heading>
-      <p>Isolated pieces will have some API for communication</p>
-      <p>
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
+        The API of your component
+      </Heading>
+      <Heading type="sub" mods={['centered']}>
+        Isolated pieces will have some API for communication
+      </Heading>
+      <Heading type="sub" mods={['centered']}>
         It's this api, <em>the props if you will,</em> that will determine if your component will be
         😍 or 🤬.
-      </p>
-    </Fragment>
+      </Heading>
+    </TitlePage>
   ))
   .add('how much', () => (
-    <Fragment>
-      <Heading type="main">The trade off in isolation ⚖️</Heading>
-      <p>If your component isolates too much...</p>
-      <p>
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
+        The trade off in isolation ⚖️
+      </Heading>
+      <Heading type="sub" mods={['centered']}>
+        If your component isolates too much...
+      </Heading>
+      <Heading type="sub" mods={['centered']}>
         The API will either have to grow to compensate for it's multitude of use-cases; increasing
         the <strong>complexity</strong>.
-      </p>
-    </Fragment>
+      </Heading>
+    </TitlePage>
   ));
 
 storiesOf('Slides|core', module)
   .add('conclusion', () => (
-    <Fragment>
-      <p>When components:</p>
+    <TitlePage>
+      <Heading type="sub" mods={['centered']}>
+        When components:
+      </Heading>
       <ul>
         <li>Abstract the right amount of stuff</li>
         <li>Isolate enough but to too much</li>
         <li>Have a good API to do things</li>
       </ul>
-      <p>then...</p>
-    </Fragment>
+      <Heading type="sub" mods={['centered']}>
+        then...
+      </Heading>
+    </TitlePage>
   ))
   .add('less changes', () => (
-    <Fragment>
-      <Heading type="main">They won't have to change as often</Heading>
-      <p>And when they do, their use-cases are limited 👌</p>
-    </Fragment>
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
+        They won't have to change as often
+      </Heading>
+      <Heading type="sub" mods={['centered']}>
+        And when they do, their use-cases are limited 👌
+      </Heading>
+    </TitlePage>
   ))
   .add('re-use', () => (
-    <Fragment>
-      <Heading type="main">It's easier to re-use 👏</Heading>
-    </Fragment>
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
+        It's easier to re-use 👏
+      </Heading>
+    </TitlePage>
   ))
   .add('autonomy', () => (
-    <Fragment>
-      <Heading type="main">Autonomy</Heading>
-    </Fragment>
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
+        Autonomy
+      </Heading>
+    </TitlePage>
   ));

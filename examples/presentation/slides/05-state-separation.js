@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { SyntaxHighlighter } from '@storybook/components';
 
 import Heading from '../components/heading';
-import { CodePage } from '../components/page';
+import { CodePage, TitlePage } from '../components/page';
 import Switcher, { Expander } from '../components/switcher';
 import * as Carousels from '../components/accordion/implementations';
 
@@ -12,25 +12,29 @@ const { items } = Carousels;
 
 storiesOf('Slides|state separation', module)
   .add('design an api', () => (
-    <Fragment>
-      <Heading type="main">
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
         Design an API for your component so encapsulates the UI Pattern, no more, no less.
       </Heading>
-    </Fragment>
+    </TitlePage>
   ))
   .add('know the pattern', () => (
-    <Fragment>
-      <p>remember:</p>
-      <Heading type="main">to abstract correctly you must understand the problem well 🐉</Heading>
-    </Fragment>
+    <TitlePage>
+      <Heading type="sub" mods={['centered']}>
+        remember:
+      </Heading>
+      <Heading type="main" mods={['centered']}>
+        to abstract correctly you must understand the problem well 🐉
+      </Heading>
+    </TitlePage>
   ))
   .add('the definition', () => (
-    <Fragment>
-      <Heading type="main">
+    <TitlePage>
+      <Heading type="main" mods={['centered']}>
         A `/(carousel|tabs|accordion)/` component should should toggle activity of
         list-items/children
       </Heading>
-    </Fragment>
+    </TitlePage>
   ))
   .add('switcher intro', () => (
     <CodePage scope={{ Switcher, Fragment, VerticalExpander: Expander, items }}>{`
@@ -73,7 +77,7 @@ storiesOf('Slides|state separation', module)
     `}</CodePage>
   ))
   .add('final switcher', () => (
-    <Fragment>
+    <TitlePage>
       <SyntaxHighlighter copyable={false}>{`
         import React, { useState } from 'react';
 
@@ -82,5 +86,5 @@ storiesOf('Slides|state separation', module)
           return children({ actives, setActives });
         };
       `}</SyntaxHighlighter>
-    </Fragment>
+    </TitlePage>
   ));

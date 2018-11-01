@@ -10,21 +10,32 @@ const modifiers = {
   uppercase: {
     textTransform: 'uppercase',
   },
+  centered: {
+    textAlign: 'center',
+  },
 };
 
 const types = {
   main: ({ theme }) => ({
     color: theme.mainTextColor,
     lineHeight: '1em',
+    fontSize: 28,
+    '& > sub': {
+      color: theme.dimmedTextColor,
+    },
+  }),
+  sub: ({ theme }) => ({
+    color: theme.mainTextColor,
+    lineHeight: '1em',
+    fontSize: 18,
     '& > sub': {
       color: theme.dimmedTextColor,
     },
   }),
   section: ({ theme }) => ({
     color: theme.dimmedTextColor,
-    letterSpacing: 4.3,
     fontWeight: 400,
-    fontSize: 10,
+    fontSize: 20,
   }),
 };
 

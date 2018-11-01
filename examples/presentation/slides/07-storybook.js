@@ -1,23 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import {
-  withKnobs,
-  withKnobsOptions,
-  text,
-  number,
-  boolean,
-  color,
-  select,
-  radios,
-  array,
-  date,
-  button,
-  object,
-  files,
-} from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 import { Logo } from '@storybook/components';
+
+import { TitlePage } from '../components/page';
 import Heading from '../components/heading';
 
 storiesOf('Slides|storybook', module)
@@ -27,24 +15,34 @@ storiesOf('Slides|storybook', module)
     })
   )
   .add('embrace components', () => (
-    <Fragment>
-      <p>Key take away</p>
-      <Heading type="main">Embrace using components beyond the visual 🤗</Heading>
-    </Fragment>
+    <TitlePage>
+      <Heading type="sub" mods={['centered']}>
+        Key take away
+      </Heading>
+      <Heading type="main" mods={['centered']}>
+        Embrace using components beyond the visual 🤗
+      </Heading>
+    </TitlePage>
   ))
   .add('too many components', () => (
-    <Fragment>
-      <p>problem:</p>
-      <Heading type="main">so many components! 🤯</Heading>
-    </Fragment>
+    <TitlePage>
+      <Heading type="sub" mods={['centered']}>
+        problem:
+      </Heading>
+      <Heading type="main" mods={['centered']}>
+        so many components! 🤯
+      </Heading>
+    </TitlePage>
   ))
   .add('enter storybook', () => {
     const bool = boolean('colored', true);
     // const bool = true;
     return (
-      <Fragment>
-        <p>solution:</p>
+      <TitlePage>
+        <Heading type="sub" mods={['centered']}>
+          solution:
+        </Heading>
         {bool ? <Logo colored /> : <Logo />}
-      </Fragment>
+      </TitlePage>
     );
   });
