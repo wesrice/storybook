@@ -36,7 +36,6 @@ storiesOf('Slides|storybook', module)
   ))
   .add('enter storybook', () => {
     const bool = boolean('colored', true);
-    // const bool = true;
     return (
       <TitlePage>
         <Heading type="sub" mods={['centered']}>

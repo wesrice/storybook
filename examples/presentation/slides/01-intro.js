@@ -1,19 +1,30 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import { Logo } from '@storybook/components';
+
 import { TitlePage } from '../components/page';
 import Heading from '../components/heading';
 import Hr from '../components/hr';
+import Avatar from '../components/avatar';
+
+import imageSrc from '../other/family.jpg';
 
 storiesOf('Slides|intro', module)
   .add('start', () => (
     <TitlePage>
-      <Heading type="main">Writing better components using Storybook</Heading>
+      <Heading type="mega" mods={['centered']}>
+        Writing better components using
+      </Heading>
+      <br />
+      <center>
+        <Logo colored />
+      </center>
     </TitlePage>
   ))
   .add('title', () => (
     <TitlePage>
-      <Heading type="main">Writing apps is hard 😞</Heading>
+      <Heading type="mega">Writing apps is hard 😞</Heading>
     </TitlePage>
   ))
   .add('questions - estimation', () => (
@@ -23,8 +34,10 @@ storiesOf('Slides|intro', module)
   ))
   .add('questions - decomposing', () => (
     <TitlePage>
-      <Heading type="main">
-        Is de-composing your big application into smaller applications to answer?
+      <Heading type="main" mods={['centered']}>
+        Is de-composing your big application
+        <br />
+        into smaller applications to answer?
       </Heading>
     </TitlePage>
   ))
@@ -35,7 +48,7 @@ storiesOf('Slides|intro', module)
   ))
   .add('questions - decomposing2', () => (
     <TitlePage>
-      <Heading type="main">
+      <Heading type="sub">
         Is de-composing your big application into smaller applications to answer? 🤔
       </Heading>
     </TitlePage>
@@ -51,20 +64,17 @@ storiesOf('Slides|intro', module)
   ))
   .add('about me', () => (
     <TitlePage>
-      <Heading type="main" mods={['centered']}>
-        👨‍💻
-      </Heading>
+      <center>
+        <Avatar src={imageSrc} size={20} />
+      </center>
       <Heading type="section" mods={['centered']}>
         Norbert de Langen
       </Heading>
       <Hr />
       <center>
         <p>Full-time open-source maintainer of Storybook</p>
-        <p>&</p>
         <p>Developer Advocate at Chroma</p>
-        <p>&</p>
         <p>Farther, Husband</p>
-        <p>&</p>
         <p>I have no idea what I'm doing</p>
       </center>
       <Hr />

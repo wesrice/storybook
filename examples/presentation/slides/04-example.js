@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import { CodePage, TitlePage } from '../components/page';
 import Heading from '../components/heading';
+import Hr from '../components/hr';
 
 import * as Carousels from '../components/accordion/implementations';
 
@@ -11,35 +12,54 @@ const { items } = Carousels;
 storiesOf('Slides|examples', module)
   .add('react component', () => (
     <TitlePage>
-      <Heading type="main">They abstract a section of UI</Heading>
-      <p>right? 🙄</p>
+      <Heading type="main" mods={['centered']}>
+        ⚛️ components abstract a section of UI
+      </Heading>
+      <Hr />
+      <Heading type="sub" mods={['centered']}>
+        right? 🙄
+      </Heading>
     </TitlePage>
   ))
   .add('sort of', () => (
     <TitlePage>
-      <p>Sort of 🤷‍</p>
+      <Heading type="main" mods={['centered']}>
+        Sort of 🤷‍
+      </Heading>
     </TitlePage>
   ))
   .add('definition of a component', () => (
     <TitlePage>
-      <Heading type="main">React components should abstract a UI pattern/concept.</Heading>
-      <p>This is different from "a section of visible UI".</p>
+      <Heading type="main">
+        Components should abstract a UI <strong>pattern/concept</strong>.
+      </Heading>
+      <Hr />
+      <Heading type="sub" mods={['centered']}>
+        This is different from "a section of visible UI".
+      </Heading>
     </TitlePage>
   ))
   .add('ui concept', () => (
     <TitlePage>
-      <Heading type="main">
+      <Heading type="main" mods={['centered']}>
         UI concepts <strong>can</strong> be visible.
       </Heading>
-      <p>This is different from "a section of visible UI".</p>
+      <Hr />
+      <Heading type="sub" mods={['centered']}>
+        But they can also provide data / state / layout / styles etc..
+      </Heading>
     </TitlePage>
   ))
   .add('encapsulate', () => (
     <TitlePage>
-      A well implemented UI concept should abstract/isolate that particular concept and nothing
-      else.
-      <br />
-      Remember, if you abstract too much, it will likely result in complexity later.
+      <Heading type="sub" mods={['centered']}>
+        A well implemented UI concept should abstract/isolate{' '}
+        <strong>that particular concept and nothing else</strong>.
+      </Heading>
+      <Hr />
+      <Heading type="sub" mods={['centered']}>
+        Remember, if you abstract too much, it will likely result in complexity later.
+      </Heading>
     </TitlePage>
   ));
 

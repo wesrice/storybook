@@ -4,9 +4,11 @@ import { storiesOf } from '@storybook/react';
 import { SyntaxHighlighter } from '@storybook/components';
 
 import Heading from '../components/heading';
+import Hr from '../components/hr';
 import { CodePage, TitlePage } from '../components/page';
 import Switcher, { Expander } from '../components/switcher';
 import * as Carousels from '../components/accordion/implementations';
+import { AccordionButton, Indicator } from '../components/accordion/common';
 
 const { items } = Carousels;
 
@@ -14,7 +16,11 @@ storiesOf('Slides|state separation', module)
   .add('design an api', () => (
     <TitlePage>
       <Heading type="main" mods={['centered']}>
-        Design an API for your component so encapsulates the UI Pattern, no more, no less.
+        Design an API for your component so encapsulates the UI Pattern
+      </Heading>
+      <Hr />
+      <Heading type="sub" mods={['centered']}>
+        no more, no less.
       </Heading>
     </TitlePage>
   ))
@@ -31,19 +37,33 @@ storiesOf('Slides|state separation', module)
   .add('the definition', () => (
     <TitlePage>
       <Heading type="main" mods={['centered']}>
-        A `/(carousel|tabs|accordion)/` component should should toggle activity of
-        list-items/children
+        A <em style={{ color: 'hotpink' }}>`/(carousel|tabs|accordion)/`</em> component
+      </Heading>
+      <Heading type="main" mods={['centered']}>
+        should should toggle activity of list-items/children
       </Heading>
     </TitlePage>
   ))
   .add('switcher intro', () => (
-    <CodePage scope={{ Switcher, Fragment, VerticalExpander: Expander, items }}>{`
+    <CodePage
+      scope={{
+        Switcher,
+        Fragment,
+        VerticalExpander: Expander,
+        Trigger: AccordionButton,
+        Indicator,
+        items,
+      }}
+    >{`
       <Switcher initial={[1,0,0]}>
         {({ actives, toggle }) => (
           <Fragment>
             {items.map((item, index) => (
               <VerticalExpander key={item.title} active={actives[index]} onClick={() => toggle(index)}>
-                <Fragment>{item.title}</Fragment>
+                <Trigger>
+                  <Indicator>{actives[index] ? '➕' : '➖'}</Indicator>
+                  {item.title}
+                </Trigger>
                 <Fragment>{item.contents}</Fragment>
               </VerticalExpander>
             ))}
@@ -53,7 +73,16 @@ storiesOf('Slides|state separation', module)
     `}</CodePage>
   ))
   .add('switcher proof', () => (
-    <CodePage scope={{ Switcher, Fragment, VerticalExpander: Expander, items }}>{`
+    <CodePage
+      scope={{
+        Switcher,
+        Fragment,
+        VerticalExpander: Expander,
+        Trigger: AccordionButton,
+        Indicator,
+        items,
+      }}
+    >{`
       <Switcher initial={[1,0,0]}>
         {({ actives, setActives }) => {
           const set = index => {
@@ -66,7 +95,10 @@ storiesOf('Slides|state separation', module)
             <Fragment>
               {items.map((item, index) => (
                 <VerticalExpander key={item.title} active={actives[index]} onClick={() => set(index)}>
-                  <Fragment>{item.title}</Fragment>
+                  <Trigger>
+                    <Indicator>{actives[index] ? '➕' : '➖'}</Indicator>
+                    {item.title}
+                  </Trigger>
                   <Fragment>{item.contents}</Fragment>
                 </VerticalExpander>
               ))}

@@ -82,7 +82,7 @@ storiesOf('Slides|core', module)
   .add('swappable', () => (
     <TitlePage>
       <Heading type="main" mods={['centered']}>
-        An isolated component can be swapped by a similar one 🔃
+        An isolated component can be 🔃 by a similar one
       </Heading>
     </TitlePage>
   ))
@@ -91,12 +91,13 @@ storiesOf('Slides|core', module)
       <Heading type="main" mods={['centered']}>
         The API of your component
       </Heading>
+      <Hr />
       <Heading type="sub" mods={['centered']}>
         Isolated pieces will have some API for communication
       </Heading>
       <Heading type="sub" mods={['centered']}>
-        It's this api, <em>the props if you will,</em> that will determine if your component will be
-        😍 or 🤬.
+        It's this API, <em>the props if you will,</em> that will determine if your component will be
+        😍 or 🤬
       </Heading>
     </TitlePage>
   ))
@@ -105,6 +106,7 @@ storiesOf('Slides|core', module)
       <Heading type="main" mods={['centered']}>
         The trade off in isolation ⚖️
       </Heading>
+      <Hr />
       <Heading type="sub" mods={['centered']}>
         If your component isolates too much...
       </Heading>
@@ -118,15 +120,15 @@ storiesOf('Slides|core', module)
 storiesOf('Slides|core', module)
   .add('conclusion', () => (
     <TitlePage>
-      <Heading type="sub" mods={['centered']}>
+      <Heading type="main" mods={['centered']}>
         When components:
       </Heading>
-      <ul>
-        <li>Abstract the right amount of stuff</li>
-        <li>Isolate enough but to too much</li>
-        <li>Have a good API to do things</li>
-      </ul>
-      <Heading type="sub" mods={['centered']}>
+      <Hr />
+      <Heading>0️⃣ Abstract the right amount of stuff</Heading>
+      <Heading>1️⃣ Isolate enough but to too much</Heading>
+      <Heading>2️⃣ Have a good API to do things</Heading>
+      <Hr />
+      <Heading type="main" mods={['centered']}>
         then...
       </Heading>
     </TitlePage>
@@ -136,6 +138,7 @@ storiesOf('Slides|core', module)
       <Heading type="main" mods={['centered']}>
         They won't have to change as often
       </Heading>
+      <Hr />
       <Heading type="sub" mods={['centered']}>
         And when they do, their use-cases are limited 👌
       </Heading>
@@ -150,8 +153,8 @@ storiesOf('Slides|core', module)
   ))
   .add('autonomy', () => (
     <TitlePage>
-      <Heading type="main" mods={['centered']}>
-        Autonomy
+      <Heading type="mega" mods={['centered']}>
+        🤩 Autonomy 😎
       </Heading>
     </TitlePage>
   ));

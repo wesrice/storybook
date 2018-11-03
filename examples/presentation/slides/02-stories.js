@@ -3,11 +3,12 @@ import { storiesOf } from '@storybook/react';
 
 import { TitlePage } from '../components/page';
 import Heading from '../components/heading';
+import Hr from '../components/hr';
 
 storiesOf('Slides|stories', module)
   .add('story 1', () => (
     <TitlePage>
-      <Heading type="main">Company 1 💼</Heading>
+      <Heading type="sub">Company 💼</Heading>
       <p>building a SAAS</p>
       <p>3 teams, each team is responsible for a section or the app</p>
       <p>as time progresses...</p>
@@ -38,8 +39,12 @@ storiesOf('Slides|stories', module)
   // ))
   .add('commonalities', () => (
     <TitlePage>
+      <Heading type="sub" mods={['centered']}>
+        What can we learn from this?
+      </Heading>
+      <Hr />
       <Heading type="main" mods={['centered']}>
-        What are the commonalities between these these stories and building UIs in general?
+        How can we build UIs to minimize this?
       </Heading>
     </TitlePage>
   ));

@@ -29,7 +29,43 @@ addDecorator(story => <ThemeProvider theme={themes.normal}>{story()}</ThemeProvi
 
 configureViewport({
   viewports: {
-    ...INITIAL_VIEWPORTS,
+    responsive: {
+      name: 'Responsive',
+      styles: {
+        width: '100%',
+        height: '100%',
+        border: 'none',
+        display: 'block',
+        boxShadow: 'none',
+        borderRadius: '0',
+        margin: '0',
+      },
+      type: 'desktop',
+    },
+    iphone5: {
+      name: 'iPhone 5',
+      styles: {
+        width: '320px',
+        height: '568px',
+      },
+      type: 'mobile',
+    },
+    iphonexsmax: {
+      name: 'iPhone XLs Max',
+      styles: {
+        width: '414px',
+        height: '896px',
+      },
+      type: 'mobile',
+    },
+    ipad: {
+      name: 'iPad',
+      styles: {
+        width: '768px',
+        height: '1024px',
+      },
+      type: 'tablet',
+    },
   },
 });
 

@@ -10,6 +10,7 @@ function RightAccordion({ items, ...props }) {
           {items.map((item, index) => (
             <AccordionItem key={item.title} direction="horizontal">
               <AccordionButton
+                style={{ minWidth: 10 }}
                 isOpen={openIndexes.includes(index)}
                 onClick={() => handleItemClick(index)}
               >

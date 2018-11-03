@@ -1,6 +1,6 @@
-import React, { useState, Children } from 'react';
+import React, { useState, Children, cloneElement } from 'react';
 
-import { AccordionButton, AccordionItem, AccordionContents, Indicator } from './accordion/common';
+import { AccordionItem, AccordionContents } from './accordion/common';
 
 const Switcher = ({ initial, children }) => {
   const [actives, setActives] = useState(initial);
@@ -15,11 +15,11 @@ const Switcher = ({ initial, children }) => {
 
 const Expander = ({ active, onClick, children }) => {
   const content = Children.toArray(children);
+  const b = content[0];
+
   return (
     <AccordionItem direction="vertical">
-      <AccordionButton isOpen={active} onClick={onClick}>
-        <Indicator>{active ? '➕' : '➖'}</Indicator> {content[0]}
-      </AccordionButton>
+      {cloneElement(b, { active, onClick }, b.props.children)}
       <AccordionContents isOpen={active}>{content[1]}</AccordionContents>
     </AccordionItem>
   );

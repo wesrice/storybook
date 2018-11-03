@@ -16,6 +16,14 @@ const modifiers = {
 };
 
 const types = {
+  mega: ({ theme }) => ({
+    color: theme.mainTextColor,
+    lineHeight: '1em',
+    fontSize: 48,
+    '& > sub': {
+      color: theme.dimmedTextColor,
+    },
+  }),
   main: ({ theme }) => ({
     color: theme.mainTextColor,
     lineHeight: '1em',

@@ -50,8 +50,6 @@ export default class KnobPanel extends PureComponent {
     this.mounted = false;
     const { channel } = this.props;
 
-    debugger;
-
     channel.removeListener(SET, this.setKnobs);
     this.stopListeningOnStory();
   }

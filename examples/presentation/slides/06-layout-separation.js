@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import Heading from '../components/heading';
 import { CodePage, TitlePage } from '../components/page';
 import Placeholder from '../components/layout/placeholder';
-import Layout1 from '../components/layout/layout1';
+import SideBySide from '../components/layout/side-by-side';
 
 storiesOf('Slides|layout separation', module)
   .add('encapsulation again', () => (
@@ -18,7 +18,7 @@ storiesOf('Slides|layout separation', module)
     </TitlePage>
   ))
   .add('layout as a pattern', () => (
-    <CodePage scope={{ Layout: Layout1, Placeholder }}>{`
+    <CodePage scope={{ Layout: SideBySide, Placeholder }}>{`
       <Layout>
         <Placeholder color="hotpink">content</Placeholder>
         <Placeholder color="deepskyblue">content</Placeholder>

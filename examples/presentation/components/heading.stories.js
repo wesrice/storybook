@@ -11,12 +11,21 @@ const Holder = styled.div({
 
 const Separator = styled.hr({
   border: '0 none',
-  borderBottom: '1px dashed deeppink',
+  borderBottom: '1px dashed silver',
 });
 
 storiesOf('Components|Heading', module)
   .add('types', () => (
     <Fragment>
+      <Holder>
+        <Heading type="mega">The mega presentation title</Heading>
+      </Holder>
+      <Holder>
+        <Heading type="mega" sub="has a subtitle">
+          This presentation title
+        </Heading>
+      </Holder>
+      <Separator />
       <Holder>
         <Heading type="main">The main presentation title</Heading>
       </Holder>
@@ -46,7 +55,7 @@ storiesOf('Components|Heading', module)
     </Fragment>
   ))
   .add('mods', () => (
-    <Fragment>
+    <div style={{ width: 400 }}>
       <Holder>
         <Heading type="main" mods={['uppercase']}>
           uppercased
@@ -58,9 +67,9 @@ storiesOf('Components|Heading', module)
         </Heading>
       </Holder>
       <Holder>
-        <Heading type="main" mods={['underline']}>
-          underlined
+        <Heading type="main" mods={['centered']}>
+          centered
         </Heading>
       </Holder>
-    </Fragment>
+    </div>
   ));
