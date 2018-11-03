@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import styled from '@emotion/styled';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import Heading from './heading';
 
@@ -15,6 +16,7 @@ const Separator = styled.hr({
 });
 
 storiesOf('Components|Heading', module)
+  .addDecorator(checkA11y)
   .add('types', () => (
     <Fragment>
       <Holder>

@@ -11,7 +11,7 @@ const Holder = styled.div({
   border: '1px dashed deepskyblue',
 });
 
-storiesOf('Components|Avatar', module).add('types', () => (
+storiesOf('Components|Avatar', module).add('sizes', () => (
   <Fragment>
     <Holder>
       <Avatar src={imageSrc} size={1} />

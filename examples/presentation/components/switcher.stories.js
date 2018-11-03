@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import styled from '@emotion/styled';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, object } from '@storybook/addon-knobs';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import Switcher, { Expander } from './switcher';
 import { items } from './accordion/implementations';
@@ -15,6 +16,7 @@ const AltContent = styled.div({
 });
 
 storiesOf('Components|Switcher', module)
+  .addDecorator(checkA11y)
   .addDecorator(
     withKnobs({
       escapeHTML: false,

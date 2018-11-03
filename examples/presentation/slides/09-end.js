@@ -9,14 +9,6 @@ import WrappingInline from '../components/layout/wrapping-inline';
 import Avatar from '../components/avatar';
 
 storiesOf('Slides|end', module)
-  .add('thanks', () => (
-    <TitlePage>
-      <Heading type="mega" mods={['centered']}>
-        👋
-      </Heading>
-      <Heading type="main">Thank you for your time!</Heading>
-    </TitlePage>
-  ))
   .add('thanks to the community', () => {
     const pictures = [];
     const req = require.context('../other/team', true, /\.(jpg|png)$/);
@@ -57,4 +49,12 @@ storiesOf('Slides|end', module)
         </Spaced>
       </TitlePage>
     );
-  });
+  })
+  .add('thanks', () => (
+    <TitlePage>
+      <Heading type="mega" mods={['centered']}>
+        👋
+      </Heading>
+      <Heading type="main">Thank you for your time!</Heading>
+    </TitlePage>
+  ));
