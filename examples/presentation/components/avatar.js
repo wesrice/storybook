@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 const Avatar = styled.span(({ src, size = 5, theme, color = 'white' }) => ({
   display: 'inline-block',
   borderRadius: '50%',
-  border: `4px solid ${color}`,
+  border: `${size}px solid ${color}`,
   backgroundImage: `url(${src})`,
   backgroundPosition: 'center',
   backgroundSize: 'cover',

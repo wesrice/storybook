@@ -1,30 +1,66 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import styled from '@emotion/styled';
+
+import { withNotes } from '@storybook/addon-notes';
 
 import SideBySide from './side-by-side';
 import WrappingInline from './wrapping-inline';
 import Placeholder from './placeholder';
 
+const Holder = styled.div({
+  margin: 10,
+  border: '1px dashed deepskyblue',
+});
+
+// console.log(require('./readme.md'));
+
 storiesOf('Components|Layout', module)
+  .addDecorator(withNotes)
+  .addParameters({
+    notes: { markdown: require('./readme.md') },
+  })
   .add('side by side', () => (
-    <SideBySide>
-      <Placeholder color="hotpink">content</Placeholder>
-      <Placeholder color="deepskyblue">content</Placeholder>
-    </SideBySide>
+    <Holder>
+      <SideBySide>
+        <Placeholder color="hotpink">content 1</Placeholder>
+        <Placeholder color="deepskyblue">content 2</Placeholder>
+      </SideBySide>
+    </Holder>
   ))
   .add('wrapping line', () => (
-    <WrappingInline>
-      <Placeholder color="hotpink">content</Placeholder>
-      <Placeholder color="deepskyblue">content</Placeholder>
-      <Placeholder color="orangered">content</Placeholder>
-      <Placeholder color="deeppink">content</Placeholder>
-    </WrappingInline>
+    <Holder>
+      <WrappingInline>
+        <Placeholder inline color="hotpink">
+          content 1
+        </Placeholder>
+        <Placeholder inline color="deepskyblue">
+          content 2
+        </Placeholder>
+        <Placeholder inline color="orangered">
+          content 3
+        </Placeholder>
+        <Placeholder inline color="deeppink">
+          content 4
+        </Placeholder>
+      </WrappingInline>
+    </Holder>
   ))
   .add('wrapping line aligned', () => (
-    <WrappingInline align="center">
-      <Placeholder color="hotpink">content</Placeholder>
-      <Placeholder color="deepskyblue">content</Placeholder>
-      <Placeholder color="orangered">content</Placeholder>
-      <Placeholder color="deeppink">content</Placeholder>
-    </WrappingInline>
+    <Holder>
+      <WrappingInline align="center">
+        <Placeholder inline color="hotpink">
+          content 1
+        </Placeholder>
+        <Placeholder inline color="deepskyblue">
+          content 2
+        </Placeholder>
+        <Placeholder inline color="orangered">
+          content 3
+        </Placeholder>
+        <Placeholder inline color="deeppink">
+          content 4
+        </Placeholder>
+      </WrappingInline>
+    </Holder>
   ));

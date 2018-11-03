@@ -9,12 +9,14 @@ storiesOf('Slides|stories', module)
   .add('story 1', () => (
     <TitlePage>
       <Heading type="sub">Company 💼</Heading>
-      <p>building a SAAS</p>
-      <p>3 teams, each team is responsible for a section or the app</p>
+      <p>
+        building a SAAS
+        <br />3 teams, each team is responsible for a section or the app
+      </p>
       <p>as time progresses...</p>
       <ul>
         <li>teams are making making requests to eachother</li>
-        <li>blocking each other, wasting time and money</li>
+        <li>blocking each other, wasting ⏱ and 💰</li>
         <li>tentions between teams rise</li>
       </ul>
     </TitlePage>

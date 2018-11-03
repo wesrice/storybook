@@ -7,6 +7,7 @@ import { TitlePage } from '../components/page';
 import Heading from '../components/heading';
 import Hr from '../components/hr';
 import Avatar from '../components/avatar';
+import Link from '../components/link';
 
 import imageSrc from '../other/family.jpg';
 
@@ -80,10 +81,10 @@ storiesOf('Slides|intro', module)
       <Hr />
       <center>
         <p>
-          🦆 <a href="https://twitter.com/ndelangen">@norbertdelangen</a>
+          🦆 <Link href="https://twitter.com/ndelangen">@norbertdelangen</Link>
         </p>
         <p>
-          💌 <a href="mailto:ndelangen@me.com">ndelangen@me.com</a>
+          💌 <Link href="mailto:ndelangen@me.com">ndelangen@me.com</Link>
         </p>
       </center>
     </TitlePage>

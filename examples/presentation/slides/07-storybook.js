@@ -7,6 +7,7 @@ import { Logo } from '@storybook/components';
 
 import { TitlePage } from '../components/page';
 import Heading from '../components/heading';
+import Hr from '../components/hr';
 
 storiesOf('Slides|storybook', module)
   .addDecorator(
@@ -19,6 +20,7 @@ storiesOf('Slides|storybook', module)
       <Heading type="sub" mods={['centered']}>
         Key take away
       </Heading>
+      <Hr />
       <Heading type="main" mods={['centered']}>
         Embrace using components beyond the visual 🤗
       </Heading>
@@ -29,6 +31,7 @@ storiesOf('Slides|storybook', module)
       <Heading type="sub" mods={['centered']}>
         problem:
       </Heading>
+      <Hr />
       <Heading type="main" mods={['centered']}>
         so many components! 🤯
       </Heading>

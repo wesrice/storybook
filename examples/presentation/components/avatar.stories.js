@@ -14,16 +14,16 @@ const Holder = styled.div({
 storiesOf('Components|Avatar', module).add('types', () => (
   <Fragment>
     <Holder>
-      <Avatar src={imageSrc} />
+      <Avatar src={imageSrc} size={1} />
+    </Holder>
+    <Holder>
+      <Avatar src={imageSrc} size={5} />
     </Holder>
     <Holder>
       <Avatar src={imageSrc} size={10} />
     </Holder>
     <Holder>
       <Avatar src={imageSrc} size={20} />
-    </Holder>
-    <Holder>
-      <Avatar src={imageSrc} size={1} />
     </Holder>
   </Fragment>
 ));

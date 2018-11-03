@@ -30,7 +30,7 @@ storiesOf('Slides|examples', module)
   ))
   .add('definition of a component', () => (
     <TitlePage>
-      <Heading type="main">
+      <Heading type="main" mods={['centered']}>
         Components should abstract a UI <strong>pattern/concept</strong>.
       </Heading>
       <Hr />
@@ -53,7 +53,8 @@ storiesOf('Slides|examples', module)
   .add('encapsulate', () => (
     <TitlePage>
       <Heading type="sub" mods={['centered']}>
-        A well implemented UI concept should abstract/isolate{' '}
+        A well implemented UI concept should abstract/isolate
+        <br />
         <strong>that particular concept and nothing else</strong>.
       </Heading>
       <Hr />

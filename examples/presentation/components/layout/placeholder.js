@@ -1,8 +1,8 @@
 // import React from 'react';
 import styled from '@emotion/styled';
 
-const Placeholder = styled.div(({ color }) => ({
-  display: 'flex',
+const Placeholder = styled.div(({ color, inline }) => ({
+  display: inline ? 'inline-flex' : 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   height: 100,

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import Heading from '../components/heading';
-import { CodePage, TitlePage } from '../components/page';
+import { CodePage, TitlePage, IsolatedPage } from '../components/page';
 import Placeholder from '../components/layout/placeholder';
 import SideBySide from '../components/layout/side-by-side';
 
@@ -18,10 +18,19 @@ storiesOf('Slides|layout separation', module)
     </TitlePage>
   ))
   .add('layout as a pattern', () => (
-    <CodePage scope={{ Layout: SideBySide, Placeholder }}>{`
-      <Layout>
+    <CodePage scope={{ SideBySide, Placeholder }}>{`
+      <SideBySide>
         <Placeholder color="hotpink">content</Placeholder>
         <Placeholder color="deepskyblue">content</Placeholder>
-      </Layout>
+      </SideBySide>
     `}</CodePage>
+  ))
+
+  .add('layout as a pattern isolated', () => (
+    <IsolatedPage>
+      <SideBySide>
+        <Placeholder color="hotpink">content</Placeholder>
+        <Placeholder color="deepskyblue">content</Placeholder>
+      </SideBySide>
+    </IsolatedPage>
   ));
