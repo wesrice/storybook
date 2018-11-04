@@ -7,6 +7,8 @@ import { TitlePage } from '../components/page';
 import Heading from '../components/heading';
 import WrappingInline from '../components/layout/wrapping-inline';
 import Avatar from '../components/avatar';
+import Hr from '../components/hr';
+import Link from '../components/link';
 
 storiesOf('Slides|end', module)
   .add('thanks to the community', () => {
@@ -56,5 +58,9 @@ storiesOf('Slides|end', module)
         👋
       </Heading>
       <Heading type="main">Thank you for your time!</Heading>
+      <Hr />
+      <center>
+        <Link href="http://v.ht/reactnext">http://v.ht/reactnext</Link>
+      </center>
     </TitlePage>
   ));
