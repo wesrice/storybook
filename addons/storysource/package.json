@@ -25,6 +25,7 @@
     "@storybook/components": "4.2.0-alpha.6",
     "core-js": "^2.5.7",
     "estraverse": "^4.2.0",
+    "global": "^4.3.2",
     "loader-utils": "^1.1.0",
     "prettier": "^1.14.3",
     "prop-types": "^15.6.2",

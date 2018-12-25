@@ -41,6 +41,7 @@
     "react-dom": "^16.7.0-alpha.2",
     "react-focus-lock": "^1.13.2",
     "react-inspector": "^2.3.0",
+    "react-monaco-editor": "^0.22.0",
     "react-popper-tooltip": "^2.3.4",
     "react-syntax-highlighter": "^8.0.1",
     "react-textarea-autosize": "^7.0.4",
