@@ -6,7 +6,6 @@ export default function addHeadWarning(id, text) {
     const warning = document.createElement('h1');
     warning.textContent = text;
     warning.id = id;
-    warning.className = 'storybook-warning';
     warning.style.backgroundColor = 'tomato';
     warning.style.padding = '10px';
 
