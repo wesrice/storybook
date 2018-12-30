@@ -16,16 +16,9 @@ export default class StoryPanel extends Component {
   state = { source: '// 🦄 Looking for it, hold on tight', lineDecorations: [] };
 
   componentDidMount() {
-    this.mounted = true;
     const { channel } = this.props;
 
     channel.on(STORY_EVENT_ID, this.listener);
-  }
-
-  componentDidUpdate() {
-    if (this.selectedStoryRef) {
-      this.selectedStoryRef.scrollIntoView();
-    }
   }
 
   componentWillUnmount() {
@@ -33,10 +26,6 @@ export default class StoryPanel extends Component {
 
     channel.removeListener(STORY_EVENT_ID, this.listener);
   }
-
-  setSelectedStoryRef = ref => {
-    this.selectedStoryRef = ref;
-  };
 
   listener = ({ fileName, source, currentLocation, locationsMap }) => {
     const locationsKeys = getLocationKeys(locationsMap);
@@ -55,25 +44,32 @@ export default class StoryPanel extends Component {
       id: 'save-the-selected-story-in-source-file',
       label: '🇸 Save the selected story in source file',
       keybindings: [
+        // eslint-disable-next-line no-bitwise
         monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S,
         // chord
-        monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_X, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S)
+        monaco.KeyMod.chord(
+          // eslint-disable-next-line no-bitwise
+          monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_X,
+          // eslint-disable-next-line no-bitwise
+          monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S
+        ),
       ],
       precondition: null,
       keybindingContext: null,
       contextMenuGroupId: 'navigation',
       contextMenuOrder: 1.5,
-      run: (thisEditor) => {
+      run: thisEditor => {
         const { fileName } = this.state;
         const { channel } = this.props;
         const content = thisEditor.getModel().getValue();
         channel.emit(SAVE_FILE_EVENT_ID, {
-          fileName, content
+          fileName,
+          content,
         });
         return null;
-      }
+      },
     });
-  }
+  };
 
   updateSource = ({ newSource }) => {
     const {
@@ -107,23 +103,20 @@ export default class StoryPanel extends Component {
 
   changePosition = (e, editor, monaco) => {
     const {
+      lineDecorations,
       currentLocation: { startLoc, endLoc },
     } = this.state;
 
-    if (!this.state.lineDecorations.length){
+    if (!lineDecorations.length) {
       const styleSheet = Array.from(document.styleSheets).slice(-1)[0];
       styleSheet.insertRule('.editableLine{background-color: #c6ff0040;}', 0);
     }
-    const lineDecorations = editor.deltaDecorations(
-      this.state.lineDecorations,
-      [
-        {
-          range: new monaco.Range(startLoc.line, startLoc.col, endLoc.line, endLoc.col),
-          options: { isWholeLine: false, inlineClassName: 'editableLine' },
-        },
-      ]
-    )
-    if (lineDecorations[0] !== this.state.lineDecorations[0]) this.setState({lineDecorations});
+    const newLineDecorations = editor.deltaDecorations(lineDecorations, [
+      {
+        range: new monaco.Range(startLoc.line, startLoc.col, endLoc.line, endLoc.col),
+        options: { isWholeLine: false, inlineClassName: 'editableLine' },
+      },
+    ]);
 
     if (
       e.position.lineNumber < startLoc.line ||
@@ -141,15 +134,22 @@ export default class StoryPanel extends Component {
         lineNumber: endLoc.line,
         column: endLoc.col,
       });
+
+    if (newLineDecorations[0] !== lineDecorations[0])
+      this.setState({ lineDecorations: newLineDecorations });
   };
 
   render = () => {
     const { active } = this.props;
     const { source } = this.state;
 
-    return active ? <Editor source={source}
-                            componentDidMount={this.editorDidMount}
-                            changePosition={this.changePosition} /> : null;
+    return active ? (
+      <Editor
+        source={source}
+        componentDidMount={this.editorDidMount}
+        changePosition={this.changePosition}
+      />
+    ) : null;
   };
 }
 

@@ -8,7 +8,9 @@ function getLocation(context, locationsMap) {
 function setStorySource(context, source, locationsMap) {
   const channel = addons.getChannel();
   const currentLocation = getLocation(context, locationsMap);
-  const {parameters: {fileName}} = context
+  const {
+    parameters: { fileName },
+  } = context;
 
   channel.emit(STORY_EVENT_ID, {
     source,

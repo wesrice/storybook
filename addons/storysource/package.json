@@ -23,6 +23,7 @@
   "dependencies": {
     "@storybook/addons": "4.2.0-alpha.7",
     "@storybook/components": "4.2.0-alpha.7",
+    "@storybook/channel-postmessage": "4.2.0-alpha.7",
     "core-js": "^2.5.7",
     "estraverse": "^4.2.0",
     "global": "^4.3.2",
